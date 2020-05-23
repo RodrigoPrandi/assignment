@@ -22,3 +22,19 @@ services:
       PORT: 8080
     ports:
       - 8080:8080
+    depends_on:
+      - db
+    env_file:
+      - .env
+  
+  db:
+    image: postgres
+    volumes:
+      - vehicle-db-data:/var/lib/postgresql/data/pgdata
+    env_file:
+      - .env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+volumes:
+  vehicle-db-data:

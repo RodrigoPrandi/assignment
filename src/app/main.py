@@ -2,10 +2,10 @@ import uvicorn
 
 from fastapi import FastAPI
 from starlette.responses import RedirectResponse
-from api.api import api_router
-from core import config
+from app.api.api import api_router
+from app.core.config import settings
 
-app = FastAPI(title=config.PROJECT_NAME)
+app = FastAPI(title=settings.PROJECT_NAME)
 
 app.include_router(api_router)
 
