@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
-from model.vehicle import Vehicle
-from model.user import User
-from api.utils.security import get_current_active_user
+from app.model.vehicle import Vehicle
+from app.model.user import User
+from app.api.utils.security import get_current_active_user
 
 router = APIRouter()
 
