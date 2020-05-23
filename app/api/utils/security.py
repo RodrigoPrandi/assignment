@@ -3,10 +3,10 @@ import jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jwt import PyJWTError
-from app.core import config
-from app.core.security import verify_password, get_password_hash
-from app.model.token import Token, TokenPayload
-from app.model.user import User, UserInDB
+from core import config
+from core.security import verify_password, get_password_hash
+from model.token import Token, TokenPayload
+from model.user import User, UserInDB
 
 fake_users_db = {
     "prandi": {

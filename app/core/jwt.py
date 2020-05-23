@@ -1,6 +1,6 @@
 import jwt
 
-from app.core import config
+from core import config
 from datetime import datetime, timedelta
 
 access_token_jwt_subject = "access"
