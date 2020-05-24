@@ -34,11 +34,12 @@ def test_get_access_token_with_invalid_password(client: TestClient, db: Session)
 
 
 def test_get_access_token(client: TestClient, db: Session) -> None:
-    user = create_random_user(db)
+    password = random_lower_string()
+    user = create_random_user(db, password=password)
     
     login_data = {
         "username": user.username,
-        "password": user.password,
+        "password": password,
     }
     r = client.post("/token", data=login_data)
     tokens = r.json()

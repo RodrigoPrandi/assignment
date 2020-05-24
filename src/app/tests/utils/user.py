@@ -10,9 +10,11 @@ from app.schemas.user import UserCreate
 from app.tests.utils.utils import random_lower_string
 
 
-def create_random_user(db: Session) -> UserCreate:
+def create_random_user(db: Session, password = random_lower_string()) -> User:
     username = random_lower_string()
-    password = random_lower_string()
     user_in = UserCreate(username=username, password=password)
-    crud.user.create(db=db, obj_in=user_in)
-    return user_in
+    return crud.user.create(db=db, obj_in=user_in)
+
+
+def drop_user(db: Session, id: int):
+    crud.user.remove(db=db, id=id)
