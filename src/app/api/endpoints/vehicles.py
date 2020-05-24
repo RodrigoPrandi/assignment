@@ -10,7 +10,7 @@ router = APIRouter()
 @router.get("/", response_model=List[schemas.Vehicle])
 def get_all_vehicles(db: Session = Depends(security.get_db), current_user: model.User = Depends(security.get_current_user)):
     
-    vehicles = crud.vehicle.get_multi_by_owner(
-        db=db, owner_id=current_user.username
+    vehicles = crud.vehicle.get_all_by_owner_order_by_distance(
+        db=db, owner=current_user.username
     )
     return vehicles
