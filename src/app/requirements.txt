@@ -16,3 +16,4 @@ psycopg2-binary==2.8.5
 jinja2==2.11.2
 raven==6.10.0
 pytest==5.4.2
+pytest-cov==2.9.0
